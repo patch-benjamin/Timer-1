@@ -191,10 +191,10 @@
             </objects>
             <point key="canvasLocation" x="3268" y="374"/>
         </scene>
-        <!--View Controller-->
+        <!--Alarm View Controller-->
         <scene sceneID="mJU-du-jl7">
             <objects>
-                <viewController id="e2K-bL-b6R" sceneMemberID="viewController">
+                <viewController id="e2K-bL-b6R" customClass="AlarmViewController" customModule="Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XwG-Zv-ugr"/>
                         <viewControllerLayoutGuide type="bottom" id="pmJ-qu-FtX"/>
