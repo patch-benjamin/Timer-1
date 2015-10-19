@@ -19,10 +19,14 @@ class TimerViewController: UIViewController {
     
     @IBOutlet weak var minutePicker: UIPickerView!
     
+    @IBOutlet weak var pickerStackView: UIStackView!
+    
+    @IBOutlet weak var startCancelButton: UIButton!
+    
     // Second View
     @IBOutlet weak var timerLabel: UILabel!
     
-    @IBOutlet weak var progressView: UIView!
+    @IBOutlet weak var progressBar: UIProgressView!
     
     
     
@@ -32,14 +36,16 @@ class TimerViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func startTouched(sender: UIButton) {
-        
+        if startCancelButton.titleLabel?.text == "Start" {
+            labelOnView()
+        } else {
+            labelOffView()
+        }
     }
     
     @IBAction func pauseTouched(sender: UIButton) {
     }
     
-    @IBAction func stopButtonTouched(sender: UIButton) {
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +69,31 @@ class TimerViewController: UIViewController {
     }
     */
 
+    func labelOffView(){
+        // turn off label and progressbar
+        progressBar.hidden = true
+        timerLabel.hidden = true
+        
+        //turn on view with selectors
+        pickerStackView.hidden = false
+        
+        // set button to "start"
+        startCancelButton.setTitle("Start", forState: .Normal)
+    }
+
+    func labelOnView(){
+        // turn on label and progressbar
+        progressBar.hidden = false
+        timerLabel.hidden = false
+        
+        //turn off view with selectors
+        pickerStackView.hidden = true
+        
+        // set button to "cancel"
+        startCancelButton.setTitle("Cancel", forState: .Normal)
+    }
+
+    
 }
 
 
