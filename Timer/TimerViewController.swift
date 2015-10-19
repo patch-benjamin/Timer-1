@@ -11,7 +11,8 @@ import UIKit
 class TimerViewController: UIViewController {
 
     // MARK: Properties
-        
+    
+    let timer = Timer()
     // MARK: Outlets
     
     // First View:
@@ -38,6 +39,7 @@ class TimerViewController: UIViewController {
     @IBAction func startTouched(sender: UIButton) {
         if startCancelButton.titleLabel?.text == "Start" {
             labelOnView()
+            setTimer()
         } else {
             labelOffView()
         }
@@ -46,12 +48,25 @@ class TimerViewController: UIViewController {
     @IBAction func pauseTouched(sender: UIButton) {
     }
     
+    func setTimer(){
+        // get values at hourpicker and minute picker
+        //convert it to seconds
+        // call timer.setTime with the seconds
+        timer.setTime(NSTimeInterval(30), totalSeconds: NSTimeInterval(30))
+    }
+    
+    func timeLabelUpdate() {
+        timerLabel.text = timer.timerString()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let nc = NSNotificationCenter.defaultCenter()
+        nc.addObserver(self, selector: "timeLabelUpdate:", name: Timer.TimerSecondTickNotification, object: nil)
+        nc.addObserver(self, selector: "labelOffView:", name: Timer.TimerCompleteNotification, object: nil)
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

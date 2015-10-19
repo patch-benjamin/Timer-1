@@ -13,14 +13,14 @@
                         <viewControllerLayoutGuide type="top" id="Uan-An-PSZ"/>
                         <viewControllerLayoutGuide type="bottom" id="QUw-5N-Vuu"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="GX0-RV-Deb">
+                    <view key="view" contentMode="scaleToFill" id="GX0-RV-Deb" customClass="backGroundUIView" customModule="Timer" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OOn-l8-Vv5">
                                 <rect key="frame" x="20" y="76" width="560" height="471"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ryf-f7-LpU">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ryf-f7-LpU" customClass="backGroundUIView" customModule="Timer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="253"/>
                                         <subviews>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y31-E2-vTX">
@@ -112,7 +112,7 @@
                                             <constraint firstItem="Hmf-iH-xvn" firstAttribute="centerX" secondItem="Ryf-f7-LpU" secondAttribute="centerX" id="s6N-TE-nE1"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLx-53-e3w">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLx-53-e3w" customClass="backGroundUIView" customModule="Timer" customModuleProvider="target">
                                         <rect key="frame" x="160" y="253" width="240" height="92"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="xGd-r5-Hsm">
@@ -155,7 +155,7 @@
                                             <constraint firstItem="xGd-r5-Hsm" firstAttribute="leading" secondItem="FLx-53-e3w" secondAttribute="leading" constant="30" id="rXm-Df-1Je"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qPR-Ns-WZd">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qPR-Ns-WZd" customClass="backGroundUIView" customModule="Timer" customModuleProvider="target">
                                         <rect key="frame" x="160" y="345" width="240" height="126"/>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
