@@ -74,6 +74,7 @@ class TimerViewController: UIViewController {
         let hour = hourPicker.selectedRowInComponent(0)
         let minute = minutePicker.selectedRowInComponent(0)
         if minute == 0 && hour == 0 {
+            
             return false
         } else {
             return true
@@ -102,7 +103,7 @@ class TimerViewController: UIViewController {
         
         let nc = NSNotificationCenter.defaultCenter()
         nc.addObserver(self, selector: "timeLabelUpdate", name: Timer.TimerSecondTickNotification, object: nil)
-        nc.addObserver(self, selector: "labelOffView", name: Timer.TimerCompleteNotification, object: nil)
+        nc.addObserver(self, selector: "timerComplete", name: Timer.TimerCompleteNotification, object: nil)
     }
     
     func timeLabelUpdate() {
@@ -159,6 +160,19 @@ class TimerViewController: UIViewController {
         startCancelButton.setTitle("Cancel", forState: .Normal)
     }
 
+    func timerComplete() {
+        labelOffView()
+
+        let alert = UIAlertController(title: "Timer Complete", message: "You've run out of time!", preferredStyle: .Alert)
+        let okButton = UIAlertAction(title: "OK", style: .Default) { (_) -> Void in
+            UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        }
+            
+        
+        alert.addAction(okButton)
+        
+        presentViewController(alert, animated: true, completion: nil)
+    }
     
     
 }
@@ -184,5 +198,7 @@ extension TimerViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "\(row)"
     }
+    
+    
     
 }

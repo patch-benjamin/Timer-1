@@ -18,6 +18,9 @@ class Timer: NSObject {
     private(set) var seconds = NSTimeInterval(0)
     private(set) var totalSeconds = NSTimeInterval(0)
     private var timer: NSTimer?
+    private var localNotification: UILocalNotification?
+    
+    
     var isOn: Bool {
         if timer == nil  {
             // TODO: Maybe change this logic??
@@ -48,6 +51,14 @@ class Timer: NSObject {
             // repeat is false so we can control the secondTick to stop after the
             timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "secondTick", userInfo: nil, repeats: true)
             
+            let localNotification = UILocalNotification()
+            localNotification.alertTitle = "Timer complete"
+            localNotification.alertBody = "You've run out of time!"
+            localNotification.applicationIconBadgeNumber = 1
+            localNotification.fireDate = NSDate().dateByAddingTimeInterval(seconds)
+            
+            UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+            
         } else {}
     }
     
@@ -56,6 +67,9 @@ class Timer: NSObject {
         timer = nil
         seconds = 0
         totalSeconds = 0
+        if let notif = localNotification {
+            UIApplication.sharedApplication().cancelLocalNotification(notif)
+        }
 
     }
     
@@ -107,6 +121,11 @@ class Timer: NSObject {
     func pauseTimer() {
         timer?.invalidate()
         timer = nil
+        
+        if let notif = localNotification {
+            UIApplication.sharedApplication().cancelLocalNotification(notif)
+        }
+    
     }
     
 }
