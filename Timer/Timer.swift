@@ -64,28 +64,17 @@ class Timer: NSObject {
     
     func timerString() -> String{
         let totalSeconds: Int = Int(self.seconds)
-        let hour: Int
-        let minute: Int
-        let second: Int
+        let hour = totalSeconds / 60 / 60
+        let minute = (totalSeconds / 60) % 60
+        let second = totalSeconds % 60
 
-        if totalSeconds/60 >= 60 { // hour or more
-            hour = (totalSeconds/60/60)%60
-            minute = (totalSeconds/60)%60
-            second = totalSeconds%60
-        } else if seconds/60 >= 1 { // minute or more
-            hour = 0
-            minute = (totalSeconds/60)%60
-            second = totalSeconds%60
-            
-        } else { // less than a minute
-            hour = 0
-            minute = 0
-            second = totalSeconds%60
-            
+        if minute < 10 && second < 10 {
+            return "\(hour):0\(minute):0\(second)"
+        } else if minute < 10 {
+            return "\(hour):0\(minute):\(second)"
+        } else {
+            return "\(hour):0\(minute):\(second)"
         }
-        
-        return "\(hour) : \(minute) : \(second)"
-
     }
     
     func progressBar() -> (seconds: Int, totalSeconds: Int) {
