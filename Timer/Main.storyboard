@@ -245,14 +245,101 @@
                     <view key="view" contentMode="scaleToFill" id="Ewj-H9-hNE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="91T-ar-qSc">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cIu-m8-Yvs">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="Ji7-ps-5oX"/>
+                                            <constraint firstAttribute="height" constant="300" id="UYz-LO-74J"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="im9-qI-v6R"/>
+                                        </constraints>
+                                        <date key="date" timeIntervalSinceReferenceDate="467070897.00747901">
+                                            <!--2015-10-20 21:54:57 +0000-->
+                                        </date>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Ji7-ps-5oX"/>
+                                            </mask>
+                                        </variation>
+                                    </datePicker>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpI-wk-edr">
+                                        <rect key="frame" x="0.0" y="300" width="600" height="40"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Lhh-DP-ZSQ"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="41" id="but-8s-ok4"/>
+                                            <constraint firstAttribute="height" constant="40" id="plN-6R-mdv"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Lhh-DP-ZSQ"/>
+                                                <exclude reference="but-8s-ok4"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GC6-Z4-z0H">
+                                        <rect key="frame" x="0.0" y="340" width="600" height="47"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="dCE-di-h8K"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="dCE-di-h8K"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBo-oL-ATi">
+                                        <rect key="frame" x="0.0" y="387" width="600" height="100"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="9hK-Oe-g6i"/>
+                                        </constraints>
+                                        <state key="normal" title="Set Alarm"/>
+                                        <connections>
+                                            <action selector="setCancelButtonTapped:" destination="e2K-bL-b6R" eventType="touchUpInside" id="F4E-VZ-1ww"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                            </stackView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="91T-ar-qSc" firstAttribute="leading" secondItem="Ewj-H9-hNE" secondAttribute="leadingMargin" id="37k-xI-kwM"/>
+                            <constraint firstItem="91T-ar-qSc" firstAttribute="top" secondItem="XwG-Zv-ugr" secondAttribute="bottom" id="R3M-sP-gPr"/>
+                            <constraint firstItem="pmJ-qu-FtX" firstAttribute="top" secondItem="91T-ar-qSc" secondAttribute="bottom" id="RDJ-Ta-Eu4"/>
+                            <constraint firstAttribute="trailing" secondItem="91T-ar-qSc" secondAttribute="trailing" id="a67-Vf-cfa"/>
+                            <constraint firstItem="91T-ar-qSc" firstAttribute="leading" secondItem="Ewj-H9-hNE" secondAttribute="leading" id="uSr-Oa-rw8"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="37k-xI-kwM"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="5Si-yJ-Qe2"/>
+                    <connections>
+                        <outlet property="alarmSetLabel" destination="LpI-wk-edr" id="Fwc-WS-KBQ"/>
+                        <outlet property="alarmTimeLabel" destination="GC6-Z4-z0H" id="XET-GK-owQ"/>
+                        <outlet property="datePicker" destination="cIu-m8-Yvs" id="Bza-X1-Meu"/>
+                        <outlet property="setCancelButton" destination="bBo-oL-ATi" id="hEH-D7-trU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ydd-cT-BQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4220" y="1151"/>
+            <point key="canvasLocation" x="4160" y="1168"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="prs-tr-fad">

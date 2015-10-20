@@ -117,10 +117,10 @@
 				7179F12A1BD59E3B00BBA633 /* Timer.swift */,
 				7179F1261BD5900600BBA633 /* TimerViewController.swift */,
 				7179F1281BD59E0D00BBA633 /* AlarmViewController.swift */,
+				100529011BD6E2E200E5C0F8 /* Alarm.swift */,
 				01A6AB441BD55A8600293874 /* LaunchScreen.storyboard */,
 				01A6AB471BD55A8600293874 /* Info.plist */,
 				01A6AB421BD55A8600293874 /* Assets.xcassets */,
-				100529011BD6E2E200E5C0F8 /* Alarm.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";

@@ -163,15 +163,6 @@ class TimerViewController: UIViewController {
     func timerComplete() {
         labelOffView()
 
-        let alert = UIAlertController(title: "Timer Complete", message: "You've run out of time!", preferredStyle: .Alert)
-        let okButton = UIAlertAction(title: "OK", style: .Default) { (_) -> Void in
-            UIApplication.sharedApplication().applicationIconBadgeNumber = 0
-        }
-            
-        
-        alert.addAction(okButton)
-        
-        presentViewController(alert, animated: true, completion: nil)
     }
     
     

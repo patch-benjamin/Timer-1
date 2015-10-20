@@ -13,6 +13,7 @@ class Timer: NSObject {
     // KEYS
     static let TimerSecondTickNotification: String = "timerSecondTickNotification"
     static let TimerCompleteNotification: String = "timerCompleteNotification"
+    static let kTimerCategoryName: String = "Timer"
     
     // Variables
     private(set) var seconds = NSTimeInterval(0)
@@ -54,8 +55,9 @@ class Timer: NSObject {
             let localNotification = UILocalNotification()
             localNotification.alertTitle = "Timer complete"
             localNotification.alertBody = "You've run out of time!"
-            localNotification.applicationIconBadgeNumber = 1
+            UIApplication.sharedApplication().applicationIconBadgeNumber += 1
             localNotification.fireDate = NSDate().dateByAddingTimeInterval(seconds)
+            localNotification.category = Timer.kTimerCategoryName
             
             UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
             
@@ -104,13 +106,6 @@ class Timer: NSObject {
             answer += "\(second)"
         }
         return answer
-//        if minute < 10 && second < 10 {
-//            return "\(hour):0\(minute):0\(second)"
-//        } else if minute < 10 {
-//            return "\(hour):0\(minute):\(second)"
-//        } else {
-//            return "\(hour):0\(minute):\(second)"
-//        }
     }
     
     func progressBar() -> (seconds: Int, totalSeconds: Int) {

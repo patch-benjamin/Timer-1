@@ -10,11 +10,50 @@ import UIKit
 
 class AlarmViewController: UIViewController {
 
+    // MARK: Properties
+    
+    var alarm = Alarm()
+    
+    
+    // MARK: Outlets
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var alarmSetLabel: UILabel!
+    @IBOutlet weak var alarmTimeLabel: UILabel!
+    @IBOutlet weak var setCancelButton: UIButton!
+
+    
+    
+    // MARK: Actions
+    
+    @IBAction func setCancelButtonTapped(sender: UIButton) {
+        
+        if !alarm.isAlarmed {
+            if let currentDate = datePicker?.date {
+                alarm.arm(currentDate)
+            }
+            setCancelButton.setTitle("Cancel Alarm", forState: .Normal)
+            
+            alarmTimeLabel.text = alarm.getDateString()
+            alarmSetLabel.text = "You alarm is set!"
+            
+        } else {
+            
+            alarm.cancel()
+            setCancelButton.setTitle("Set Alarm", forState: .Normal)
+            alarmTimeLabel.text = ""
+            alarmSetLabel.text = "You alarm is not set."
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let settingsDetails = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(settingsDetails)
+        datePicker.minimumDate = NSDate()
+        
+        // Observe NSNotification
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "alarmComplete", name: Alarm.kAlarmCompleteNotification, object: alarm)
 
     }
 
@@ -23,6 +62,9 @@ class AlarmViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func alarmComplete() {
+        alarm.cancel()
+    }
 
     /*
     // MARK: - Navigation

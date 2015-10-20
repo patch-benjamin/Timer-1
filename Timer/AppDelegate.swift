@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        
+        
         AppearanceController.setUpAppearance()
         return true
     }
@@ -33,12 +35,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        
+        
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
-        
+        let settingsDetails = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(settingsDetails)
 
     }
     
@@ -47,10 +52,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-       
-        
-        
-        
+        if notification.category == Timer.kTimerCategoryName {
+            let alert = UIAlertController(title: "Timer Complete", message: "You've run out of time!", preferredStyle: .Alert)
+            let okButton = UIAlertAction(title: "OK", style: .Default) { (_) -> Void in
+                UIApplication.sharedApplication().applicationIconBadgeNumber -= 1
+            }
+            
+            alert.addAction(okButton)
+            self.window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+            
+            
+        } else if notification.category == Alarm.kAlarmCategoryName {
+            let alert = UIAlertController(title: "Alarm", message: "The time has finally come!", preferredStyle: .Alert)
+            let okButton = UIAlertAction(title: "OK", style: .Default) { (_) -> Void in
+                UIApplication.sharedApplication().applicationIconBadgeNumber -= 1
+                Alarm.alarmComplete()
+            }
+            
+            alert.addAction(okButton)
+            self.window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+        }
     }
 
 }
