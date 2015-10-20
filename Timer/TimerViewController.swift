@@ -45,19 +45,24 @@ class TimerViewController: UIViewController {
             labelOnView()
         } else {
             labelOffView()
+            pauseButton.setTitle("Pause", forState: .Normal)
+            isPaused = !isPaused
         }
     }
     
     @IBAction func pauseTouched(sender: UIButton) {
         
-        if timer.isOn {
+        if timer.isStarted {
             if isPaused{ // play it and show option to "pause"
                 
                 pauseButton.setTitle("Pause", forState: .Normal)
+                timer.startTimer()
                 
             } else { // pause it and show option to "play"
                 
                 pauseButton.setTitle("Play", forState: .Normal)
+                timer.pauseTimer()
+                
                 
             }
             isPaused = !isPaused
@@ -137,6 +142,9 @@ class TimerViewController: UIViewController {
         
         // set button to "start"
         startCancelButton.setTitle("Start", forState: .Normal)
+        
+        // cancel timer
+         timer.stopTimer()
     }
 
     func labelOnView(){
