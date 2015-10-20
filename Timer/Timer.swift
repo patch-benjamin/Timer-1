@@ -18,7 +18,7 @@ class Timer: NSObject {
     private(set) var seconds = NSTimeInterval(0)
     private(set) var totalSeconds = NSTimeInterval(0)
     private var timer: NSTimer?
-    private var isOn: Bool {
+    var isOn: Bool {
         if seconds > 0 {
             // TODO: Maybe change this logic??
             return true
@@ -35,23 +35,28 @@ class Timer: NSObject {
     
     func startTimer(){
         if timer == nil {
-            timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "secondTick", userInfo: nil, repeats: true)
+            // repeat is false so we can control the secondTick to stop after the
+            timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "secondTick:", userInfo: nil, repeats: true)
             
         } else {}
     }
     
     func stopTimer() {
         timer = nil
+        seconds = 0
+        totalSeconds = 0
     }
     
-    func secondTick() {
+    func secondTick(counter: NSTimer) {
         if timer != nil {
             seconds--
             let nc = NSNotificationCenter.defaultCenter()
-            nc.postNotificationName(Timer.TimerSecondTickNotification, object: self)
+            nc.postNotificationName(Timer.TimerSecondTickNotification, object: self) // Second Tick
             
             if seconds <= 0 {
-                nc.postNotificationName(Timer.TimerCompleteNotification, object: self)
+                nc.postNotificationName(Timer.TimerCompleteNotification, object: self) // Completion
+                // stop the scheduledtimer
+                counter.invalidate()
                 stopTimer()
             }
         }
@@ -67,7 +72,7 @@ class Timer: NSObject {
             hour = (totalSeconds/60/60)%60
             minute = (totalSeconds/60)%60
             second = totalSeconds%60
-        } else if seconds/60 > 1 { // minute or more
+        } else if seconds/60 >= 1 { // minute or more
             hour = 0
             minute = (totalSeconds/60)%60
             second = totalSeconds%60
@@ -82,4 +87,9 @@ class Timer: NSObject {
         return "\(hour) : \(minute) : \(second)"
 
     }
+    
+    func progressBar() -> (seconds: Int, totalSeconds: Int) {
+        return (Int(seconds), Int(totalSeconds))
+    }
+    
 }

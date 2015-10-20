@@ -11,7 +11,7 @@ import UIKit
 class TimerViewController: UIViewController {
 
     // MARK: Properties
-    
+    var isPaused: Bool = false
     let timer = Timer()
     // MARK: Outlets
     
@@ -39,15 +39,40 @@ class TimerViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func startTouched(sender: UIButton) {
-        if startCancelButton.titleLabel?.text == "Start" {
-            labelOnView()
+        if startCancelButton.titleLabel?.text == "Start" && validTimeEntry(){
             setTimer()
+            timeLabelUpdate()
+            labelOnView()
         } else {
             labelOffView()
         }
     }
     
     @IBAction func pauseTouched(sender: UIButton) {
+        
+        if timer.isOn {
+            if isPaused{ // play it and show option to "pause"
+                
+                pauseButton.setTitle("Pause", forState: .Normal)
+                
+            } else { // pause it and show option to "play"
+                
+                pauseButton.setTitle("Play", forState: .Normal)
+                
+            }
+            isPaused = !isPaused
+        }
+        
+    }
+    
+    func validTimeEntry() -> Bool{
+        let hour = hourPicker.selectedRowInComponent(0)
+        let minute = minutePicker.selectedRowInComponent(0)
+        if minute == 0 && hour == 0 {
+            return false
+        } else {
+            return true
+        }
     }
     
     func setTimer(){
@@ -77,6 +102,10 @@ class TimerViewController: UIViewController {
     
     func timeLabelUpdate() {
         timerLabel.text = timer.timerString()
+        // Set progress bar too
+        let secondInfo = timer.progressBar()
+        let progress = secondInfo.seconds
+        progressBar.setProgress(Float(progress), animated: true)
     }
 
 
@@ -85,16 +114,6 @@ class TimerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     func labelOffView(){
         // turn off label and progressbar
@@ -121,8 +140,10 @@ class TimerViewController: UIViewController {
     }
 
     
+    
 }
 
+// MARK: UIPickerViewDataSource AND ViewDelegate
 
 extension TimerViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     

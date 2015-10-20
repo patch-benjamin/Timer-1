@@ -23,7 +23,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ryf-f7-LpU" customClass="backGroundUIView" customModule="Timer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="253"/>
                                         <subviews>
-                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y31-E2-vTX">
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y31-E2-vTX">
                                                 <rect key="frame" x="0.0" y="0.0" width="560" height="253"/>
                                                 <animations/>
                                                 <constraints>
@@ -96,7 +96,7 @@
                                                     <constraint firstItem="HN7-ej-GQS" firstAttribute="top" secondItem="Hmf-iH-xvn" secondAttribute="top" id="Wug-2g-JKc"/>
                                                 </constraints>
                                             </stackView>
-                                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kWs-Pd-wtx">
+                                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kWs-Pd-wtx">
                                                 <rect key="frame" x="0.0" y="0.0" width="560" height="5"/>
                                                 <animations/>
                                                 <constraints>
@@ -108,8 +108,14 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="Hmf-iH-xvn" firstAttribute="centerY" secondItem="Ryf-f7-LpU" secondAttribute="centerY" id="1jB-xr-NTD"/>
+                                            <constraint firstItem="kWs-Pd-wtx" firstAttribute="leading" secondItem="Ryf-f7-LpU" secondAttribute="leading" id="AM5-8W-xAu"/>
+                                            <constraint firstItem="Y31-E2-vTX" firstAttribute="trailing" secondItem="kWs-Pd-wtx" secondAttribute="trailing" id="OR1-43-GxI"/>
+                                            <constraint firstItem="Y31-E2-vTX" firstAttribute="centerY" secondItem="Hmf-iH-xvn" secondAttribute="centerY" id="Vsh-ke-Smp"/>
                                             <constraint firstItem="Hmf-iH-xvn" firstAttribute="top" secondItem="Ryf-f7-LpU" secondAttribute="top" constant="18" id="WJd-b4-f3R"/>
+                                            <constraint firstItem="Y31-E2-vTX" firstAttribute="top" secondItem="kWs-Pd-wtx" secondAttribute="top" id="fGZ-Is-nPv"/>
+                                            <constraint firstItem="kWs-Pd-wtx" firstAttribute="centerX" secondItem="Hmf-iH-xvn" secondAttribute="centerX" id="r9g-jy-xVU"/>
                                             <constraint firstItem="Hmf-iH-xvn" firstAttribute="centerX" secondItem="Ryf-f7-LpU" secondAttribute="centerX" id="s6N-TE-nE1"/>
+                                            <constraint firstItem="Y31-E2-vTX" firstAttribute="leading" secondItem="kWs-Pd-wtx" secondAttribute="leading" id="wOy-H5-Bsb"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLx-53-e3w" customClass="backGroundUIView" customModule="Timer" customModuleProvider="target">
