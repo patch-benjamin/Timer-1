@@ -72,6 +72,7 @@ class Timer: NSObject {
         if let notif = localNotification {
             UIApplication.sharedApplication().cancelLocalNotification(notif)
         }
+        UIApplication.sharedApplication().applicationIconBadgeNumber -= 1
 
     }
     

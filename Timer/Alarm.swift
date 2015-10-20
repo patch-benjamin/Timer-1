@@ -44,6 +44,7 @@ class Alarm: NSObject {
     func cancel() {
         // cancel scheduled UILocalNotification (with kString)
         UIApplication.sharedApplication().cancelLocalNotification(localNotification!)
+        UIApplication.sharedApplication().applicationIconBadgeNumber -= 1
         
         
         // clear value of alarmDate

@@ -214,11 +214,11 @@
             </objects>
             <point key="canvasLocation" x="4080" y="374"/>
         </scene>
-        <!--Item-->
+        <!--Timer-->
         <scene sceneID="QY9-oS-oWg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CUq-d3-mYw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="aPF-NL-Ndn"/>
+                    <tabBarItem key="tabBarItem" title="Timer" id="aPF-NL-Ndn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pUc-ms-uYd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -266,7 +266,7 @@
                                             </mask>
                                         </variation>
                                     </datePicker>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpI-wk-edr">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your alarm is not set." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpI-wk-edr">
                                         <rect key="frame" x="0.0" y="300" width="600" height="40"/>
                                         <animations/>
                                         <constraints>
@@ -284,7 +284,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GC6-Z4-z0H">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GC6-Z4-z0H">
                                         <rect key="frame" x="0.0" y="340" width="600" height="47"/>
                                         <animations/>
                                         <constraints>
@@ -360,11 +360,11 @@
             </objects>
             <point key="canvasLocation" x="2456" y="374"/>
         </scene>
-        <!--Item-->
+        <!--Alarm-->
         <scene sceneID="L7C-dm-taR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="voV-u7-kgP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="zLk-nN-x4Y"/>
+                    <tabBarItem key="tabBarItem" title="Alarm" id="zLk-nN-x4Y"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Qe-I1-JUz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
