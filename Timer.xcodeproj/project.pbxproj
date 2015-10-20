@@ -108,16 +108,13 @@
 			isa = PBXGroup;
 			children = (
 				01A6AB691BD55B1800293874 /* AppDelegate.swift */,
-				01A6AB421BD55A8600293874 /* Assets.xcassets */,
 				01A6AB6B1BD55B4500293874 /* Main.storyboard */,
-				7179F12C1BD5B0FD00BBA633 /* Colors.swift */,
-				7179F12E1BD5B31500BBA633 /* AppearanceController.swift */,
-				7179F1301BD5B6C800BBA633 /* backGroundUIView.swift */,
-				7179F12A1BD59E3B00BBA633 /* Timer.swift */,
+				108C0EC91BD5EE4000B8B597 /* Timer */,
+				108C0ECA1BD5EE4600B8B597 /* Alarm */,
+				108C0EC81BD5EE2C00B8B597 /* Appearance */,
 				01A6AB441BD55A8600293874 /* LaunchScreen.storyboard */,
-				7179F1261BD5900600BBA633 /* TimerViewController.swift */,
 				01A6AB471BD55A8600293874 /* Info.plist */,
-				7179F1281BD59E0D00BBA633 /* AlarmViewController.swift */,
+				01A6AB421BD55A8600293874 /* Assets.xcassets */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -138,6 +135,33 @@
 				01A6AB5D1BD55A8600293874 /* Info.plist */,
 			);
 			path = TimerUITests;
+			sourceTree = "<group>";
+		};
+		108C0EC81BD5EE2C00B8B597 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				7179F12E1BD5B31500BBA633 /* AppearanceController.swift */,
+				7179F12C1BD5B0FD00BBA633 /* Colors.swift */,
+				7179F1301BD5B6C800BBA633 /* backGroundUIView.swift */,
+			);
+			name = Appearance;
+			sourceTree = "<group>";
+		};
+		108C0EC91BD5EE4000B8B597 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				7179F1261BD5900600BBA633 /* TimerViewController.swift */,
+				7179F12A1BD59E3B00BBA633 /* Timer.swift */,
+			);
+			name = Timer;
+			sourceTree = "<group>";
+		};
+		108C0ECA1BD5EE4600B8B597 /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				7179F1281BD59E0D00BBA633 /* AlarmViewController.swift */,
+			);
+			name = Alarm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
