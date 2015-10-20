@@ -104,8 +104,20 @@ class TimerViewController: UIViewController {
         timerLabel.text = timer.timerString()
         // Set progress bar too
         let secondInfo = timer.progressBar()
-        let progress = secondInfo.seconds
-        progressBar.setProgress(Float(progress), animated: true)
+        if secondInfo.seconds > 0{
+            let seconds: Float = Float(secondInfo.seconds)
+            let totalSecs: Float = Float(secondInfo.totalSeconds)
+            let progress: Float = seconds/totalSecs
+            print ("\(seconds) : \(totalSecs)")
+            // Control animation/sliding effect of progress bar
+            if seconds == totalSecs{
+                progressBar.setProgress(progress, animated: false)
+            } else {
+                progressBar.setProgress(progress, animated: true)
+            }
+     
+        }
+    
     }
 
 
