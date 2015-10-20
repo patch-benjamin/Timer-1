@@ -126,6 +126,11 @@
                                                             <constraint firstAttribute="width" constant="75" id="vIx-My-m1g"/>
                                                         </constraints>
                                                         <state key="normal" title="Pause"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <real key="value" value="37.5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="pauseTouched:" destination="eRO-eK-tpB" eventType="touchUpInside" id="kNq-69-TkT"/>
                                                         </connections>
@@ -138,6 +143,17 @@
                                                             <constraint firstAttribute="width" constant="75" id="KfP-bH-9q9"/>
                                                         </constraints>
                                                         <state key="normal" title="Start"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <real key="value" value="37.5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                                <color key="value" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="startTouched:" destination="eRO-eK-tpB" eventType="touchUpInside" id="dey-xH-May"/>
                                                         </connections>
@@ -181,6 +197,7 @@
                     <connections>
                         <outlet property="hourPicker" destination="HN7-ej-GQS" id="FO0-Ie-Ta0"/>
                         <outlet property="minutePicker" destination="C56-yc-nE0" id="vSX-by-SBs"/>
+                        <outlet property="pauseButton" destination="gqX-i6-fzM" id="xlm-mD-z2d"/>
                         <outlet property="pickerStackView" destination="Hmf-iH-xvn" id="dLU-O4-GZS"/>
                         <outlet property="progressBar" destination="kWs-Pd-wtx" id="BB3-t2-e29"/>
                         <outlet property="startCancelButton" destination="AS6-io-N3Z" id="g2N-pt-ytt"/>

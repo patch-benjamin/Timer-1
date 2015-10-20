@@ -30,11 +30,12 @@ class Timer: NSObject {
     func setTime(seconds: NSTimeInterval, totalSeconds: NSTimeInterval){
         self.seconds = seconds
         self.totalSeconds = totalSeconds
+        startTimer()
     }
     
     func startTimer(){
         if timer == nil {
-            timer = NSTimer(fireDate: NSDate(), interval: totalSeconds, target: self, selector: "secondTick:", userInfo: nil, repeats: true)
+            timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "secondTick", userInfo: nil, repeats: true)
             
         } else {}
     }
@@ -57,10 +58,13 @@ class Timer: NSObject {
     }
     
     func timerString() -> String{
+        let seconds: Int = Int(self.seconds)
         if seconds/60 >= 60 {
             return "\(seconds/60/60) : \((seconds/60)%60) : \(((seconds/60)/60)%60)"
-        } else {
+        } else if seconds/60 > 1 {
             return "0 :\(seconds/60) : \(seconds%60)"
+        } else {
+            return "0 : 0 : \(seconds)"
         }
     }
 }

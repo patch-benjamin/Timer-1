@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 class AppearanceController {
     
@@ -17,6 +18,7 @@ class AppearanceController {
         UIButton.appearance().backgroundColor = UIColor.buttonBackGroundColor()
         UINavigationBar.appearance().backgroundColor = UIColor.navBarColor()
         UITabBar.appearance().backgroundColor = UIColor.tabBarColor()
+        
     }
     
 }

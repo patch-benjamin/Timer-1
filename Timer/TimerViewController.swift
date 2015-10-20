@@ -22,6 +22,8 @@ class TimerViewController: UIViewController {
     
     @IBOutlet weak var pickerStackView: UIStackView!
     
+    @IBOutlet weak var pauseButton: UIButton!
+    
     @IBOutlet weak var startCancelButton: UIButton!
     
     // Second View
@@ -55,18 +57,25 @@ class TimerViewController: UIViewController {
         timer.setTime(NSTimeInterval(30), totalSeconds: NSTimeInterval(30))
     }
     
-    func timeLabelUpdate() {
-        timerLabel.text = timer.timerString()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        startCancelButton.layer.borderColor = UIColor.buttonTextColor().CGColor
+        startCancelButton.layer.borderWidth = 3
+        
+        pauseButton.layer.borderColor = UIColor.buttonTextColor().CGColor
+        pauseButton.layer.borderWidth = 3
+        
         let nc = NSNotificationCenter.defaultCenter()
-        nc.addObserver(self, selector: "timeLabelUpdate:", name: Timer.TimerSecondTickNotification, object: nil)
-        nc.addObserver(self, selector: "labelOffView:", name: Timer.TimerCompleteNotification, object: nil)
+        nc.addObserver(self, selector: "timeLabelUpdate", name: Timer.TimerSecondTickNotification, object: nil)
+        nc.addObserver(self, selector: "labelOffView", name: Timer.TimerCompleteNotification, object: nil)
     }
     
+    func timeLabelUpdate() {
+        timerLabel.text = timer.timerString()
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
