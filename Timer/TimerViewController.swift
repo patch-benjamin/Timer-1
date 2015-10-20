@@ -52,9 +52,12 @@ class TimerViewController: UIViewController {
     
     func setTimer(){
         // get values at hourpicker and minute picker
+        let hour = hourPicker.selectedRowInComponent(0)
+        let minute = minutePicker.selectedRowInComponent(0)
+        let seconds = ((hour*60)*60) + (minute*60)
         //convert it to seconds
         // call timer.setTime with the seconds
-        timer.setTime(NSTimeInterval(30), totalSeconds: NSTimeInterval(30))
+        timer.setTime(NSTimeInterval(seconds), totalSeconds: NSTimeInterval(seconds))
     }
     
     
